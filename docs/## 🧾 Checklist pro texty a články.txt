@@ -1,0 +1,61 @@
+## 🧾 **Checklist pro texty a články (současný i budoucí)**
+
+### 🔹 OBECNÁ STRUKTURA
+
+* [ ] Každý článek má jasný a výstižný **nadpis (H2)**
+* [ ] Úvod článku stručně vysvětluje, o čem text je
+* [ ] Text se dělí do **odstavců max. po 4–5 řádcích**
+* [ ] Dlouhé části mají **podnadpisy** (H3) pro přehlednost
+* [ ] Klíčová slova (např. typ masáže, účinky) se přirozeně opakují
+
+---
+
+### 🔹 JAZYK A STYL
+
+* [ ] Text zní přirozeně a lidsky, ne encyklopedicky
+* [ ] Je psaný **v duchu „vysvětluji klientovi“**, ne „píšu odborný článek“
+* [ ] Žádné složité lékařské termíny bez vysvětlení
+* [ ] Každá masáž zdůrazňuje **přínos pro klienta**
+* [ ] Používáš **pozitivní tón** („uvolní, pomůže, zmírní…“) místo negativního („nepůsobí, neubližuje…“)
+
+---
+
+### 🔹 OBSAHOVÁ HODNOTA
+
+* [ ] U každé masáže je stručně uvedeno:
+
+  * [ ] pro koho je vhodná
+  * [ ] jaké má účinky
+  * [ ] jak probíhá
+  * [ ] kdy se nedoporučuje
+* [ ] Informace jsou konzistentní napříč články (např. styl, pořadí sekcí)
+* [ ] Text končí přirozeně, nejlépe **pozitivním tónem nebo pozváním**
+
+---
+
+### 🔹 PŘÍSTUPNOST A ČITELNOST
+
+* [ ] Každý text je dobře čitelný i při poslechu čtečkou (žádné zkratky, zbytečné znaky)
+* [ ] Dlouhé seznamy jsou rozdělené do odrážek
+* [ ] Všude, kde jsou důležité body, používáš `<strong>` místo VELKÝCH PÍSMEN
+* [ ] Upozornění (např. „Zdraví na prvním místě“) jsou zřetelná, ale neruší
+
+---
+
+### 🔹 AKTUALITA A AUTENTICITA
+
+* [ ] Všechny informace odpovídají současné nabídce a praxi
+* [ ] Ceník a kontakty jsou aktuální
+* [ ] Texty stále odpovídají tvojí filozofii a stylu komunikace
+* [ ] Pokud se někdy rozhodneš texty zkrátit, přidej k nim stručné shrnutí (2–3 věty nahoře)
+
+---
+
+### 🔹 BONUS – PRO BUDOUCÍ ÚPRAVY
+
+* [ ] Mám připravený stručnější formát (TL;DR) pro mobily
+* [ ] Používám jednotný tón hlasu napříč celým webem
+* [ ] Klíčové sekce (např. O mně, Kontakt) odpovídají aktuálnímu stylu webu
+* [ ] Kdykoli přidám nový článek, držím se stejného formátu a stylu
+
+
