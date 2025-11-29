@@ -1,0 +1,1650 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Masáže Jan Šimek — Vaše pohoda je moje priorita</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* upravená barevná paleta – elegantní hnědá-čokoládová + tyrkys jako doplněk */
+    --bg: #faf8f3;
+    --card: #ffffff;
+    --muted: #4b5563;
+    --accent: #d8b673;      /* zlatavý akcent */
+    --accent-dark: #b99752; /* tmavší zlatá */
+    --accent-2: #f4e1c1;    /* teplý světlejší akcent */
+    --shadow: 0 6px 18px rgba(99,72,28,0.12);
+    --radius: 12px;
+    --max-width: 1100px;
+    --container-padding: 20px;
+    color-scheme: light;
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg, #faf8f3 0%, #f4efe9 100%);
+    color:#1f2937;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.6;
+  }
+
+  .wrap{
+    max-width: var(--max-width);
+    margin: 28px auto;
+    padding: var(--container-padding);
+  }
+
+  /* NOVÉ: horní záhlaví přes celou stránku */
+  .site-topbar{
+    background: linear-gradient(90deg, #d8b673, #e6c88f);
+    color:#3a2c12;
+    box-shadow: 0 4px 12px rgba(120,90,40,0.15);
+  }
+  .site-topbar-inner{
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 14px 20px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .site-topbar-logo{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    font-weight:600;
+  }
+  .site-topbar-title{
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+
+  /* Header (původní blok – jen lehce doladěné barvy) */
+  header.header{
+    background: linear-gradient(90deg, #b89b73, #9b805d);
+    color:white;
+    padding:28px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display:flex;
+    gap:18px;
+    align-items:center;
+    margin-top:22px;
+  }
+
+  .logo{
+    width:96px;
+    height:96px;
+    min-width:96px;
+    min-height:96px;
+    background:rgba(255,255,255,0.12);
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+
+  .logo svg{width:56px;height:56px;display:block}
+
+  .header-info{
+    flex:1;
+  }
+
+  .studio-name{
+    font-size:22px;
+    font-weight:800;
+    margin:0 0 6px 0;
+    letter-spacing:0.04em;
+  }
+
+  .contact{
+    font-size:14px;
+    color: rgba(255,255,255,0.95);
+    margin-bottom:8px;
+  }
+
+  .intro{
+    font-size:15px;
+    color: rgba(255,255,255,0.97);
+    opacity:0.98;
+    margin:0;
+  }
+
+  /* tlačítko Reservio – základní odsazení */
+  .reservio-button-container{
+    margin: 22px 0;
+    text-align:center;
+  }
+
+  /* three panels */
+  .panels{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:16px;
+    margin-top:18px;
+  }
+
+  .panel{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:16px;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    min-height:120px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+
+  .panel:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(99,72,28,0.16);
+  }
+
+  .panel h3{margin:0 0 8px 0;font-size:16px;color:var(--accent-dark)}
+  .panel p{margin:0 0 12px 0;color:var(--muted);font-size:14px}
+  .panel .btn{
+    margin-top:auto;
+    align-self:flex-start;
+    background:linear-gradient(90deg, var(--accent), #e6c88f);
+    color:#3a2c12;
+    border:0;
+    padding:10px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    box-shadow: 0 6px 14px rgba(180,150,100,0.35);
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .panel .btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(99,72,28,0.3);
+    background:linear-gradient(90deg, #e6c88f, var(--accent));
+  }
+  .panel .btn:focus{outline:3px solid rgba(216,182,115,0.3)}
+
+  /* About section */
+  .about{
+    display:flex;
+    gap:20px;
+    margin-top:22px;
+    align-items:center;
+    background:transparent;
+  }
+
+  .avatar{
+    width:160px;
+    height:160px;
+    background: linear-gradient(180deg,var(--accent-2),#fff3d1);
+    border-radius:50%;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: var(--shadow);
+  }
+  .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+
+  .about-text h4{margin:0 0 8px 0;font-size:18px;color:var(--accent-dark)}
+  .about-text p{margin:0;color:var(--muted)}
+
+  /* Modal backdrop and dialog */
+  .backdrop{
+    position:fixed;
+    inset:0;
+    background:rgba(40,26,8,0.55);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:1200;
+    padding:20px;
+  }
+  .backdrop.open{display:flex;animation: fadeIn .25s ease-out;}
+
+  @keyframes fadeIn{
+    from{opacity:0;transform:translateY(6px);}
+    to{opacity:1;transform:none;}
+  }
+
+  .dialog{
+    width:100%;
+    max-width:920px;
+    max-height:90vh;
+    overflow:auto;
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:20px;
+    box-shadow: 0 20px 60px rgba(40,26,8,0.5);
+  }
+
+  .dialog .dialog-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .dialog h2{margin:0;font-size:20px;color:var(--accent-dark)}
+  .dialog .close{
+    background:transparent;border:0;font-size:16px;padding:8px;cursor:pointer;border-radius:8px;color:var(--muted);
+  }
+  .dialog .close:focus{outline:3px solid rgba(185,151,82,0.25)}
+
+  /* table ceník */
+  table.price{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:12px;
+  }
+  table.price th, table.price td{
+    text-align:left;
+    padding:10px 8px;
+    border-bottom:1px solid #eef2f4;
+    font-size:15px;
+  }
+
+  /* Accordion inside modal */
+  .accordion-list{margin-top:10px}
+  .accordion{
+    border-radius:10px;
+    overflow:hidden;
+    background:linear-gradient(180deg,#fff,#fbfbfd);
+    margin-bottom:8px;
+    box-shadow: 0 4px 10px rgba(6,10,14,0.04);
+  }
+  .accordion button{
+    width:100%;
+    text-align:left;
+    background:transparent;
+    border:0;
+    padding:14px;
+    font-size:15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    cursor:pointer;
+  }
+  .accordion button:focus{outline:3px solid rgba(216,182,115,0.32)}
+  .accordion .panel{
+    padding:12px 14px 18px 14px;
+    border-top:1px solid #eef2f4;
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  .chev{
+    width:22px;height:22px;display:inline-block;transform:rotate(0deg);transition:transform .18s ease;
+  }
+  .chev.open{transform:rotate(180deg)}
+
+  /* small screens */
+  @media (max-width:900px){
+    .panels{grid-template-columns:1fr}
+    .about{flex-direction:column;align-items:flex-start}
+    .site-topbar-inner{flex-direction:row}
+  }
+
+  /* focus outline visible for keyboard only */
+  :focus{outline:none}
+  :focus-visible{outline:3px solid rgba(185,151,82,0.4);border-radius:8px}
+
+  /* accessibility helpers */
+  .sr-only{
+    position:absolute!important;
+    width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  }
+
+  footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+
+/* --- Styl pro provozní list --- */
+.provozni-list {
+  background: #fffdf9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.provozni-list .info-blok p {
+  margin: 4px 0;
+}
+
+.provozni-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 16px;
+}
+
+.provozni-list table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.provozni-list table tr:nth-child(even) {
+  background: #f8f5ef;
+}
+
+.provozni-list h3 {
+  margin-top: 20px;
+  color: #b08a55;
+}
+
+.provozni-list a {
+  color: #5690F5;
+  text-decoration: none;
+}
+.provozni-list a:hover {
+  text-decoration: underline;
+}
+/* Hlavní rezervace tlačítko (Reservio) */
+.reservio-button-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.reservio-button-container > div,
+.reservio-button-container iframe {
+  transform: scale(1.3); /* Zvětšení tlačítka */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  border-radius: 10px !important;
+}
+
+.reservio-button-container:hover > div,
+.reservio-button-container:hover iframe {
+  transform: scale(1.35);
+  transition: transform 0.3s ease;
+}
+
+/* Ostatní tlačítka */
+button.btn {
+  background: linear-gradient(90deg, #d8b673, #c19a5b);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+button.btn:hover {
+  background: linear-gradient(90deg, #caa764, #b48d47);
+  transform: translateY(-2px);
+}
+
+button.btn:focus {
+  outline: 3px solid #b48d47;
+  outline-offset: 2px;
+}
+</style>
+</head>
+<body>
+  <!-- NOVÉ záhlaví -->
+  <header class="site-topbar">
+    <div class="site-topbar-inner">
+<div class="site-topbar-logo">
+  <img src="data/logo.jpg" alt="Logo Masáže Jan Šimek" style="width:70px;height:70px;border-radius:50%;object-fit:cover;">
+</div>
+<div class="site-topbar-title">Masáže Jan Šimek</div>
+  </header>
+
+  <div class="wrap" id="mainWrap">
+    <header class="header">
+      <div class="logo" aria-hidden="true">
+        <!-- simple svg logo placeholder -->
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="white" opacity="0.08"/>
+          <path d="M16 40C20 32 28 28 36 28C44 28 48 34 48 40" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 20C24 16 32 14 38 16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="header-info">
+        <h1 class="studio-name">Masáže Jan Šimek</h1>
+        <div class="contact" id="contactInfo">
+          <!-- Kontaktní údaje -->
+          Mobil: 704 715 817<br>
+          e-mail: info@masazesimek.cz<br>
+          Adresa: Tř. Václava Klementa 820, 29301 Mladá Boleslav<br>
+          Masérna se nachází v prostorech kadeřnictví.
+        </div>
+        <p class="intro">
+          Vítejte! Jmenuji se Jan Šimek a masáže jsou pro mě víc než práce – jsou posláním.
+          Od roku 2012 pomáhám lidem nacházet úlevu a rovnováhu. Děkuji, že mi důvěřujete.
+        </p>
+      </div>
+    </header>
+
+    <!-- 1. Reservio tlačítko – pod hlavičkou -->
+    <div class="reservio-button-container"
+         data-text="Objednat masáž"
+         data-size="large"
+         data-color="#d8b673"
+         data-url="https://masaze-jan-simek.reservio.com">
+    </div>
+
+    <main role="main" aria-labelledby="mainHeading">
+      <h2 id="mainHeading" class="sr-only">Hlavní obsah</h2>
+
+      <section aria-labelledby="servicesHeading" style="margin-top:18px">
+        <div class="panels" id="panelGrid">
+          <article class="panel" aria-labelledby="priceBtnLabel">
+            <h3 id="priceBtnLabel">💰 Ceník</h3>
+            <p>Zobrazit aktuální ceník.</p>
+            <button class="btn" data-open="priceModal" aria-haspopup="dialog">🫱 Zobrazit ceník</button>
+          </article>
+
+          <article class="panel" aria-labelledby="faqBtnLabel">
+            <h3 id="faqBtnLabel">❔ FAQ — Často kladené otázky</h3>
+            <p>Zobrazit často kladené otázky.</p>
+            <button class="btn" data-open="faqModal" aria-haspopup="dialog">🫱 Otevřít FAQ</button>
+          </article>
+
+          <article class="panel" aria-labelledby="infoBtnLabel">
+            <h3 id="infoBtnLabel">📖 Informace o masážích</h3>
+            <p>Popis různých typů masáží a jejich průběh.</p>
+            <button class="btn" data-open="infoModal" aria-haspopup="dialog">🫱 Více o masážích</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="about" aria-labelledby="aboutHeading">
+        <div class="avatar" aria-hidden="true">
+          <!-- Placeholder image; nahraj si své -->
+          <img src="data/foto.jpg?text=Foto+maséra" alt="Foto majitele / maséra">
+        </div>
+        <div class="about-text">
+          <h4 id="aboutHeading">O mně</h4>
+          <p>Moje jméno je Jan Šimek a masíruji již od roku 2012. Kdysi jsem slyšel krásné přísloví, které mi utkvělo v paměti: "Najdi si práci, kterou budeš milovat, a už nikdy nebudeš muset pracovat." Masírování pro mě není jen práce, ale spíše poslání a životní styl.</p>
+<p>
+            Svou práci miluji a nedokážu si bez ní představit život. Je to pro mě srdeční záležitost, která mě provází už mnoho let. Každá chyba, a že jich za tu dobu byla spousta, mě posunula kupředu a motivovala k neustálému zdokonalování. Učím se nové techniky a snažím se zlepšovat své služby, abych vám mohl nabídnout co nejlepší zážitek.
+        </p>
+<p>
+            I přes svůj zrakový handicap, se kterým jsem se narodil, žiji plnohodnotný život. Dokážu ho kompenzovat svými ostatními smysly a profesionálním přístupem k práci. Vnímám potřeby vašeho těla a záleží mi na tom, abych vám pomohl dosáhnout potřebné relaxace a regenerace.
+        </p>
+<p>
+            Hledáte maséra, který je do své práce zapálený a pro kterého je vaše pohoda prioritou? Pak jste na správném místě. Postarám se o to, abyste se ke mně rádi vraceli a využívali mé služby.
+K masážím přistupuji s láskou a pokorou. Jsem vděčný za každou zpětnou vazbu a konstruktivní kritiku, která mi pomáhá růst. Děkuji všem, kteří se u mě nechali namasírovat a svěřili mi své tělo do péče.
+
+        </p>
+
+  <h2>Provozní list</h2>
+
+  <div class="info-blok">
+    <p><strong>Masáže Jan Šimek</strong></p>
+    <p><strong>Odpovědná osoba:</strong> Jan Šimek</p>
+    <p><strong>IČO:</strong> 19183143</p>
+    <p><strong>Mobil:</strong> 📞 +420 704 715 817</p>
+    <p><strong>E-mail:</strong> ✉️ <a href="mailto:info@masazesimek.cz">info@masazesimek.cz</a></p>
+    <p><strong>Web:</strong> 🌐 <a href="https://masazesimek.cz">masazesimek.cz</a></p>
+    <p><strong>Adresa:</strong> 📍 Tř. Václava Klementa 820<br>29301 Mladá Boleslav</p>
+    <p>Masérna se nachází v prostorech kadeřnictví.</p>
+  </div>
+
+  <h3>Provozní doba</h3>
+  <p><em>Objednávky pouze předem.</em></p>
+
+  <table class="otevreno">
+    <tbody>
+      <tr><td>Pondělí</td><td>8:00 – 20:00</td><td>Otevřeno dle objednávek</td></tr>
+      <tr><td>Úterý</td><td>–</td><td>Zavřeno</td></tr>
+      <tr><td>Středa</td><td>8:00 – 20:00</td><td>Otevřeno dle objednávek</td></tr>
+      <tr><td>Čtvrtek</td><td>8:00 – 20:00</td><td>Otevřeno dle objednávek</td></tr>
+      <tr><td>Pátek</td><td>–</td><td>Zavřeno</td></tr>
+      <tr><td>Sobota</td><td>–</td><td>Zavřeno</td></tr>
+      <tr><td>Neděle</td><td>10:00 – 15:00</td><td>Otevřeno dle objednávek</td></tr>
+    </tbody>
+  </table>
+
+  <p class="kontaktni-info">
+    Ohledně objednávek a dotazů kontaktujte výhradně odpovědnou osobu.
+  </p>
+        </div>
+      </section>
+
+      <!-- 2. Reservio tlačítko – pod sekcí O mně -->
+      <div class="reservio-button-container"
+           data-text="Vytvořit rezervaci"
+           data-size="large"
+           data-color="#d8b673"
+           data-url="https://masaze-jan-simek.reservio.com">
+      </div>
+
+      <footer>
+        © <span id="year"></span> Masáže Jan Šimek — Všechna práva vyhrazena.
+      </footer>
+    </main>
+  </div>
+
+  <!-- ARIA live region for announcements -->
+  <div id="ariaStatus" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- MODAL: CENÍK -->
+  <div id="priceModal" class="backdrop" data-modal>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="priceTitle" aria-describedby="priceDesc" tabindex="-1">
+      <div class="dialog-header">
+        <h2 id="priceTitle">Ceník</h2>
+        <div>
+          <button class="close" aria-label="Zavřít ceník" data-close>&#x2715;</button>
+        </div>
+      </div>
+
+<section class="price-section">
+  <h2>Ceník masáží</h2>
+
+  <table class="price">
+    <thead>
+      <tr>
+        <th>Typ masáže</th>
+        <th>Délka trvání</th>
+        <th>Cena</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <td><a href="#" class="price-link" data-target="masaz_klasicka">Klasická masáž</a></td>
+      <td>30 min.</td>
+      <td>300,00 Kč</td>
+    </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="masaz_klasicka">Klasická masáž</a></td>
+      <td>60 min.</td>
+      <td>600,00 Kč</td>
+    </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="masaz_klasicka">Klasická masáž</a></td>
+      <td>90 min.</td>
+      <td>900,00 Kč</td>
+      </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="masaz_klasicka">Klasická masáž</a></td>
+      <td>120 min.</td>
+      <td>1 200,00 Kč</td>
+    </tr>
+
+    <tr>
+      <td><a href="#" class="price-link" data-target="manualni_lymfodrenaz">Manuální lymfodrenáž</a></td>
+      <td>60 min.</td>
+      <td>700,00 Kč</td>
+    </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="manualni_lymfodrenaz">Manuální lymfodrenáž</a></td>
+      <td>90 min.</td>
+      <td>1 000,00 Kč</td>
+    </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="manualni_lymfodrenaz">Manuální lymfodrenáž</a></td>
+      <td>120 min.</td>
+      <td>1 300,00 Kč</td>
+    </tr>
+
+    <tr>
+      <td><a href="#" class="price-link" data-target="reflexni_terapie">Reflexní terapie</a></td>
+      <td>30 min.</td>
+      <td>300,00 Kč</td>
+    </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="reflexni_terapie">Reflexní terapie</a></td>
+      <td>60 min.</td>
+      <td>600,00 Kč</td>
+    </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="reflexni_terapie">Reflexní terapie</a></td>
+      <td>90 min.</td>
+      <td>800,00 Kč</td>
+    </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="reflexni_terapie">Reflexní terapie</a></td>
+      <td>120 min.</td>
+      <td>1 000,00 Kč</td>
+    </tr>
+
+    <tr>
+      <td><a href="#" class="price-link" data-target="dornova_metoda">Dornova metoda</a></td>
+      <td>60 min.</td>
+      <td>700,00 Kč</td>
+    </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="dornova_metoda">Dornova metoda</a></td>
+      <td>90 min.</td>
+      <td>900,00 Kč</td>
+    </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="dornova_metoda">Dornova metoda</a></td>
+      <td>120 min.</td>
+      <td>1 100,00 Kč</td>
+    </tr>
+
+    <tr>
+      <td><a href="#" class="price-link" data-target="breussova_metoda">Breussova metoda</a></td>
+      <td>30 min.</td>
+      <td>300,00 Kč</td>
+    </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="breussova_metoda">Breussova metoda</a></td>
+      <td>60 min.</td>
+      <td>500,00 Kč</td>
+    </tr>
+
+    <tr>
+      <td><a href="#" class="price-link" data-target="masaz_tehotne">Masáž pro těhotné</a></td>
+      <td>30 min.</td>
+      <td>400,00 Kč</td>
+    </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="masaz_tehotne">Masáž pro těhotné</a></td>
+      <td>60 min.</td>
+      <td>700,00 Kč</td>
+    </tr>
+
+    <tr>
+      <td><a href="#" class="price-link" data-target="mobilizacni_metoda">Mobilizační metoda</a></td>
+      <td>60 min.</td>
+      <td>800,00 Kč</td>
+    </tr>
+
+    <tr>
+      <td><a href="#" class="price-link" data-target="masaz_lavove_kameny">Masáž lávovými kameny</a></td>
+      <td>30 min.</td>
+      <td>700,00 Kč</td>
+    </tr>
+    <tr>
+      <td><a href="#" class="price-link" data-target="masaz_lavove_kameny">Masáž lávovými kameny</a></td>
+      <td>60 min.</td>
+      <td>1 200,00 Kč</td>
+    </tr>
+  </tbody>
+</table>
+</section>
+
+        <!-- 3. Reservio tlačítko – v modalu Ceník -->
+        <div class="reservio-button-container"
+             data-text="Rezervovat termín"
+             data-size="large"
+             data-color="#d8b673"
+             data-url="https://masaze-jan-simek.reservio.com">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: FAQ -->
+  <div id="faqModal" class="backdrop" data-modal>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="faqTitle" aria-describedby="faqDesc" tabindex="-1">
+      <div class="dialog-header">
+        <h2 id="faqTitle">Často kladené otázky (FAQ)</h2>
+        <div>
+          <button class="close" aria-label="Zavřít FAQ" data-close>&#x2715;</button>
+        </div>
+      </div>
+
+      <div id="faqDesc">
+        <p>Na této stránce naleznete odpovědi na nejčastější otázky. Pokud zde nenajdete odpověď na svou otázku, napište mi. Rád ji sem doplním spolu s odpovědí.</p>
+        <div class="accordion-list" id="faqAccordions">
+          <!-- 10 FAQ položek (ponecháno z původní verze) -->
+
+          <!-- 1 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="faq1_content" id="faq1_btn">
+              <span>&lt;summary&gt;Jak se mohu objednat na masáž?&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="faq1_content" role="region" aria-labelledby="faq1_btn" hidden>
+              <div class="panel">Jak se mohu objednat na masáž?</div>
+
+<p>Objednání je snadné a můžete si vybrat z několika způsobů:</p>
+<p>Telefonicky: Zavolejte mi na číslo 704 715 817.</p>
+<p>SMS nebo WhatsApp: Stačí mi napsat zprávu s vaším požadavkem.</p>
+<p>E-mailem: Napište mi na info@masazesimek.cz.</p>
+<p>Online rezervace: Klikněte na rezervační tlačítko na úvodní stránce mého webu. Budete přesměrováni do rezervačního systému Reservio, kde si snadno zarezervujete termín.</p>
+<p>Společně se domluvíme na typu masáže a vhodném termínu.</p>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="faq2_content" id="faq2_btn">
+              <span>&lt;summary&gt;Jak probíhá masáž?&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="faq2_content" role="region" aria-labelledby="faq2_btn" hidden>
+              <div class="panel">Jak probíhá masáž?</div>
+
+<p>Po příchodu na adresu Tř. Václava Klementa 820, Mladá Boleslav, se posaďte v čekárně. Moje masérna se nachází v prostorách kadeřnictví, takže se nenechte zmást. Jakmile přijdu, společně přejdeme do masérny, kde vám vysvětlím vše potřebné a instruuji vás podle zvoleného typu masáže.</p>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="faq3_content" id="faq3_btn">
+              <span>&lt;summary&gt;Co si mám vzít do masérny?&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="faq3_content" role="region" aria-labelledby="faq3_btn" hidden>
+              <div class="panel">Co si mám vzít do masérny?</div>
+
+<p>Nemusíte si brát nic speciálního, moje masérna je plně vybavená. Stačí, když přijdete s dobrou náladou a chutí si odpočinout.</p>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="faq4_content" id="faq4_btn">
+              <span>&lt;summary&gt;Jak mohu platit za masáž?&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="faq4_content" role="region" aria-labelledby="faq4_btn" hidden>
+              <div class="panel">Jak mohu platit za masáž?</div>
+
+<p>Platbu za masáž můžete provést těmito způsoby:</p>
+<p>Hotovost: Prosím, mějte připravenou hotovost, ideálně ne velké bankovky.</p>
+<p>Platba kartou: Přijímám platby přes terminál. Pokud částka přesahuje 500 Kč, budete vyzváni k zadání PINu. Platba je zcela bezpečná a vaše údaje jsou chráněny.</p>
+<p>QR Kód: Platbu můžete zaplatit naskenováním qr kódu, pomocí vašeho mobilního bankovnictví.</p>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="faq5_content" id="faq5_btn">
+              <span>&lt;summary&gt;Potřebuji zrušit masáž. Jak mám postupovat?&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="faq5_content" role="region" aria-labelledby="faq5_btn" hidden>
+              <div class="panel">Potřebuji zrušit masáž. Jak mám postupovat?</div>
+
+<p>Pokud potřebujete zrušit masáž, dejte mi prosím vědět co nejdříve, abych mohl váš termín nabídnout jinému klientovi.
+Stačí zavolat nebo napsat zprávu – nemusíte uvádět složité důvody. Například:</p>
+<p>„Nestihnu přijít, omlouvám se.“</p>
+<p>„Jsem nemocná/ý, objednám se na jindy.“</p>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="faq6_content" id="faq6_btn">
+              <span>&lt;summary&gt;Chci jít na masáž, ale nechci se nikde registrovat. Jak to mám udělat?&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="faq6_content" role="region" aria-labelledby="faq6_btn" hidden>
+              <div class="panel">Chci jít na masáž, ale nechci se nikde registrovat. Jak to mám udělat?</div>
+
+<p>Je možné se objednat i bez registrace, ale potřebuji od vás následující údaje:</p>
+<p>Jméno a příjmení.</p>
+<p>Telefonní číslo.</p>
+<p>Informace o zdravotním stavu: Zda máte nějaké onemocnění nebo alergie na oleje. Používám neutrální hypoalergenní olej bez vůně, který je vhodný pro většinu klientů.</p>
+<p>Kam si vaše údaje ukládám?</p>
+<p>Pečlivě dbám na ochranu vašich údajů. Zde je přehled, jaké informace si ukládám:</p>
+<p>Základní údaje: Jméno, příjmení, telefonní číslo.</p>
+<p>Historie masáží: Počet a typ masáží, diagnózy, poznámky o proběhlých masážích.</p>
+<p>Tyto informace jsou uloženy v soukromém excelovém souboru, ke kterému mám přístup pouze já. Vaše údaje nejsou sdíleny s třetími stranami.</p>
+            </div>
+          </div>
+
+          <!-- 7 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="faq7_content" id="faq7_btn">
+              <span>&lt;summary&gt;Co mám dělat, když jsem nespokojená/ý s masáží?&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="faq7_content" role="region" aria-labelledby="faq7_btn" hidden>
+              <div class="panel">Co mám dělat, když jsem nespokojená/ý s masáží?</div>
+
+<p>Pokud nejste spokojeni, rozhodně se nebojte mi to sdělit. Vážím si každé zpětné vazby, ať už je pozitivní, nebo kritická. Masíruji už řadu let, ale stále se snažím zlepšovat. Pokud máte připomínku nebo návrh, co by šlo udělat jinak, neváhejte mi to říct. Budu vám za to vděčný a udělám vše pro to, abyste byli spokojeni.</p>
+            </div>
+          </div>
+
+          <!-- 8 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="faq8_content" id="faq8_btn">
+              <span>&lt;summary&gt;Online rezervace. Jak se objednat online?&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="faq8_content" role="region" aria-labelledby="faq8_btn" hidden>
+              <div class="panel">Online rezervace. Jak se objednat online na masáž?</div>
+
+  <h2>Jak si objednat masáž online</h2>
+
+  <p>Chcete si objednat masáž jednoduše a rychle? S novým rezervačním systémem <strong>Reservio</strong> je to naprosto snadné.</p>
+  <p><em>Telefonická rezervace zůstává i nadále dostupná.</em> Online rezervace je pouze další pohodlný způsob, jak se ke mně objednat.</p>
+
+  <h3>Krok 1: Začátek rezervace</h3>
+  <p>Na webových stránkách <a href="https://www.masazesimek.cz">www.masazesimek.cz</a> najdete tlačítko <strong>„Vytvořit rezervaci“</strong>. Po kliknutí na něj se dostanete na můj profil v systému Reservio. Zde najdete informace o masérně a tlačítko <strong>„Rezervovat termín“</strong>.</p>
+
+  <h3>Krok 2: Výběr masáže</h3>
+  <p>Po kliknutí na <strong>„Rezervovat termín“</strong> se zobrazí seznam nabízených masáží. Vyberte si tu, kterou chcete, a pokračujte na výběr data a času.</p>
+
+  <h3>Krok 3: Vyplnění osobních údajů</h3>
+  <p>Vyplňte své <strong>jméno</strong>, <strong>příjmení</strong> a <strong>e-mailovou adresu</strong>. Tyto údaje jsou nezbytné pro dokončení rezervace. Pokud máte účet na Reservio, můžete se přihlásit. Dále vyberte způsob platby a případně napište poznámku ohledně masáže.</p>
+
+  <h3>Krok 4: Souhlas s ochranou soukromí</h3>
+  <p>Zaškrtněte pole, abyste potvrdili <strong>souhlas s pravidly ochrany soukromí</strong>. Bez tohoto souhlasu nelze rezervaci dokončit. Volitelně můžete souhlasit se zasíláním marketingových oznámení.</p>
+
+  <h3>Krok 5: Dokončení rezervace</h3>
+  <p>Klikněte na tlačítko <strong>„Rezervovat“</strong>. Pokud jste zvolili platbu online kartou, proběhne bezpečně přes důvěryhodnou platební bránu. Po dokončení rezervace obdržíte potvrzení e-mailem a můžete si založit účet na Reservio pro lepší přehled o svých rezervacích.</p>
+  <p><em>Já, Reservio ani platební brána neuchováváme vaše platební údaje.</em></p>
+
+  <h3>Výhody online rezervace</h3>
+  <ul>
+    <li>Automatické <strong>upozornění</strong> na blížící se masáž</li>
+    <li><strong>Přehled</strong> všech rezervací na jednom místě</li>
+    <li><strong>Bez nutnosti</strong> telefonického objednávání</li>
+    <li><strong>Jednoduché a rychlé</strong> online objednání 24/7</li>
+  </ul>
+
+  <p>Doufám, že vám tento návod pomůže. Pokud máte jakékoliv dotazy, <strong>neváhejte mě kontaktovat</strong>. Těším se na vás v mé masérně!</p>
+            </div>
+          </div>
+
+          <!-- 9 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="faq9_content" id="faq9_btn">
+              <span>&lt;summary&gt;SMohu přijít i s mírným nachlazením nebo rýmou?&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="faq9_content" role="region" aria-labelledby="faq9_btn" hidden>
+              <div class="panel">Mohu přijít i s mírným nachlazením nebo rýmou?</div>
+
+  <p>Pokud máte <strong>nachlazení</strong>, masáž rozhodně <strong>nedoporučuji</strong>. Masáží se zvyšuje krevní oběh, a tím se mohou bakterie a viry dostat do dalších částí těla, kde mohou způsobit komplikace.</p>
+  <p>Z mírného nachlazení se tak může rychle stát <strong>horečka nebo teplota</strong>. Navíc se vám po masáži může udělat nevolno – mám to osobně vyzkoušené.</p>
+  <p>Proto doporučuji přijít až ve chvíli, kdy jste <strong>zcela zdraví</strong>. Tělo pak na masáž reaguje mnohem lépe a účinek je výraznější.</p>
+            </div>
+          </div>
+
+          <!-- 10 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="faq10_content" id="faq10_btn">
+              <span>&lt;summary&gt;Mohu po masáži konzumovat kávu nebo alkohol?&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="faq10_content" role="region" aria-labelledby="faq10_btn" hidden>
+              <div class="panel">Mohu po masáži konzumovat kávu nebo alkohol?</div>
+
+  <p><strong>Rozhodně ne.</strong> Po masáži se tělo čistí – krevní oběh se zrychluje a tělo vylučuje různé škodliviny. Proto je velmi důležité <strong>pít dostatek vhodných tekutin</strong>.</p>
+
+  <h4>Vhodné tekutiny po masáži:</h4>
+  <ul>
+    <li>Čistá voda nebo voda s citronem</li>
+    <li>Bylinkový nebo ovocný čaj</li>
+  </ul>
+  <p>Pitím pomáháte tělu vyloučit nežádoucí látky a podpořit regeneraci.</p>
+
+  <h4>Co se po masáži <strong>nesmí pít</strong>:</h4>
+  <ul>
+    <li><strong>Alkohol</strong> – víno, pivo, destiláty, tvrdý alkohol.  
+      Masáží se zrychlí krevní oběh, a alkohol se tak rychleji vstřebá.  
+      Jedna sklenička vína pak může mít účinek jako dvě.</li>
+    <li><strong>Káva, zelený a černý čaj, kofeinové nápoje</strong> – kofein sice působí močopudně,  
+      ale zároveň zadržuje v těle látky, které by měly být po masáži vyloučeny.</li>
+  </ul>
+            </div>
+          </div>
+
+          <!-- 11 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="faq11_content" id="faq11_btn">
+              <span>&lt;summary&gt;Mohu si koupit dárkový poukaz?&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="faq11_content" role="region" aria-labelledby="faq11_btn" hidden>
+              <div class="panel">Mohu si koupit dárkový poukaz?</div>
+
+  <p>Ano, nabízím <strong>dárkové poukazy</strong> v těchto hodnotách:</p>
+  <ul>
+    <li>1 000 Kč</li>
+    <li>1 500 Kč</li>
+    <li>2 000 Kč</li>
+  </ul>
+  <p>Poukazy jsou ideálním dárkem pro vaše blízké – můžete je zakoupit <strong>osobně</strong> přímo u mě v masérně.</p>
+  <p>Poukazy <strong>nezasílám poštou</strong>. Každý poukaz má platnost 12 měsíců a je přenosný.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: INFORMACE O MASÁŽÍCH -->
+  <div id="infoModal" class="backdrop" data-modal>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="infoTitle" aria-describedby="infoDesc" tabindex="-1">
+      <div class="dialog-header">
+        <h2 id="infoTitle">Informace o masážích</h2>
+        <div>
+          <button class="close" aria-label="Zavřít informace o masážích" data-close>&#x2715;</button>
+        </div>
+      </div>
+
+      <div id="infoDesc">
+        <p>Vyberte masáž pro podrobnosti.</p>
+
+        <div class="accordion-list" id="massageAccordions">
+          <!-- 10 položek, stejná struktura jako FAQ -->
+          <!-- 1 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="ms1_content" id="ms1_btn">
+              <span>&lt;summary&gt;Úvod do masáží.&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="ms1_content" role="region" aria-labelledby="ms1_btn" hidden>
+              <div class="panel">O masážích</div>
+<p>Co je to dotyk? Dotyk je jednou ze základních forem komunikace, kterou začínáme vnímat už před narozením. Tento smysl nám pomáhá propojit se s okolím a hraje klíčovou roli při řešení stresu a napětí. Dotykem působíme na centrální nervový systém, což je jeden z hlavních důvodů, proč jsou masáže tak důležité.</p>
+
+<p>Každý člověk by si měl dopřát masáž alespoň jednou za měsíc, i když netrpí žádnými zdravotními problémy. Masáž je skvělý způsob relaxace – pomáhá nám odpočívat, regenerovat tělo a zbavovat se stresu. Po masáži se často dostavuje pocit uvolnění a znovuzrození.</p>
+
+<h2>Zdravotní benefity masáže</h2>
+
+<p>Masáž má pozitivní vliv na fyzické i psychické zdraví. Vědci zjistili, že pravidelné masáže mohou snížit hladinu adrenokortikotropního hormonu (ACTH). Tento hormon vzniká v hypofýze a jeho hladina roste při stresu, nemoci nebo poklesu krevního tlaku. Zvýšené hladiny ACTH mohou negativně ovlivnit imunitní systém, protože snižují aktivitu buněk, které udržují obranyschopnost našeho těla. Pravidelná masáž pomáhá zmenšit stres a posiluje naši imunitu.</p>
+
+<p>Masáže jsou také vhodné pro lidi, kteří tráví dlouhé hodiny v sedavém zaměstnání. Sedavý životní styl často způsobuje tuhnutí svalů, tvorbu myogelóz (zatvrdlin svalů) a bolesti zad, hlavy nebo krční páteře. Masáž může pomoci zmírnit tyto potíže a zlepšit krevní oběh. Navíc přispívá k produkci endorfinů, které zlepšují náladu, a pozitivně ovlivňuje nervový systém, který řídí funkce vnějších i vnítřních orgánů.</p>
+
+<h2>Praktické rady pro klienty</h2>
+
+<p>Pro někoho může být myšlenka na masáž stresující, zvláště pokud má negativní zkušenosti. U mě se však nemusíte ničeho obávat. Moje práce je založena na respektu, důvěře a individuálním přístupu. Masáž plně přizpůsobím vašim potřebám. Můžeme společně probrat vaše přání, obavy nebo specifické požadavky, aby pro vás byla masáž příjemným a uvolňujícím zážitkem. Můj cíl je, abyste si masáž užili a odnesli si pocit klidu a harmonie.</p>
+
+<h2>Masáž a kadeřnictví – praktické doporučení</h2>
+Moje masérna se nachází v prostorách kadeřnictví. Pokud chcete spojit masáž s návštěvou kadeřnice, mám pro vás drobnou radu: některé masážní techniky zahrnují uvolňování napětí v oblasti lebečních úponů, což může ovlivnit vaše vlasy. Doporučuji proto nejprve navštívit masérnu a poté využít služby kadeřnice, aby vaše úprava vlasů zůstala perfektní.</p>
+
+<h2><strong>Upozornění: zdraví na prvním místě</strong></h2>
+
+Vaše zdraví je pro mě prioritou. V některých případech si mohu vyžádat potvrzení od lékaře, pokud mám pochybnosti o tom, zda by masáž byla pro vás bezpečná. Prosím, neberte to osobně – jde o opatření, které chrání váš zdravotní stav. Pokud by masáž mohla být riziková, budu ji muset odmítnout, ale společně se pokusíme najít jiné řešení, které bude vyhovovat vašim potřebám. Děkuji za pochopení a věřte, že mi na vašem zdraví velmi záleží.</p>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="ms2_content" id="ms2_btn">
+              <span>&lt;summary&gt;Klasická masáž&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="ms2_content" role="region" aria-labelledby="ms2_btn" hidden>
+              <div class="panel">Klasická masáž</div>
+<article id="masaz_klasicka" class="clanek">
+  <h2>Klasická masáž</h2>
+  …
+</article>
+<p>Klasická masáž je souhrn masážních technik, které se vyvíjely po staletí. Kořeny masáže lze nalézt ve starověkých kulturách, včetně Číny, kde byla praktická masáž zmiňována již 3000 let př. n. l. Moderní podoba klasické masáže se však vyvinula v Evropě, a to zejména díky švédskému lékaři Peru Henriku Lingovi (1776–1839). Lingův systém masážních technik, který se objevil v 19. století, se rychle rozšířil po celé Evropě a stal se základem klasické masáže, jak ji známe dnes.</p>
+
+<p>Zdroj: dostupné historické prameny</p>
+
+<h2>Indikace klasické masáže</h2>
+
+<p>Klasická masáž má široké spektrum přínosů pro fyzické i psychické zdraví. Mezi hlavní indikace patří:</p>
+
+<p>Uvolnění napjatých svalů a zmírnění bolesti v oblastech krku, ramen, zad, beder a dalších částí těla.</p>
+<p>Snížení úrovně stresu a úzkosti díky uvolňování endorfinů a celkovému relaxačnímu efektu.</p>
+<p>Zmírnění příznaků některých zdravotních stavů, jako je artritida, fibromyalgie nebo ischias.</p>
+<p>Zvýšení průtoku krve, což zlepšuje zásobování tkání kyslíkem a živinami a podporuje regeneraci.</p>
+<p>Relaxace a obnova energie – mnoho lidí využívá klasickou masáž jako způsob odpočinku a načerpání nových sil.</p>
+
+<h2>Kontraindikace klasické masáže</h2>
+
+<p>V některých situacích není masáž vhodná, aby nedošlo k ohrožení zdraví klienta. Mezi hlavní kontraindikace patří:</p>
+<p>Infekční onemocnění: Masáž může zhoršit nebo rozšířit infekci (např. chřipku, nachlazení či kožní infekce).</p>
+<p>Závažná kožní onemocnění: Popáleniny, vředy, infikované rány nebo rozsáhlé kožní problémy jsou důvodem k vynechání masáže.</p>
+<p>Horečka: Masáž by mohla dále zvýšit teplotu těla a zatížit organismus.</p>
+<p>Akutní zranění: Masáž se neprovádí na oblastech se zlomeninami, výrony či roztrženými svaly.</p>
+<p>Kardiovaskulární problémy: Klienti s vážnými problémy, jako je srdeční selhání, by měli masáž konzultovat s lékařem.</p>
+<p>Těhotenství: Masáž je bezpečná, pokud ji provádí zkušený masér, ale v prvním trimestru by měla být prováděna pouze po konzultaci s lékařem.</p>
+<p>Trombóza: Klienti s rizikem trombózy by měli masáž konzultovat s lékařem, aby se předešlo komplikacím.</p>
+<p>Onkologická onemocnění: Masáž je možná pouze po konzultaci s onkologem a při dodržení specifických pravidel.</p>
+<p>Alergie na oleje: Pokud klient trpí alergií na masážní oleje nebo aromaterapeutické látky, je nutné o tom maséra předem informovat.</p>
+<p>Doporučení</p>
+<p>Přínosy i omezení klasické masáže závisí na individuálním zdravotním stavu klienta. Před masáží je vhodné konzultovat váš zdravotní stav s masérem nebo lékařem, aby byl zvolen vhodný přístup a techniky. Správná konzultace zajišťuje bezpečnost a maximální efekt masáže.</p>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="ms3_content" id="ms3_btn">
+              <span>&lt;summary&gt;Manuální Lymfodrenáž&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="ms3_content" role="region" aria-labelledby="ms3_btn" hidden>
+              <div class="panel">Manuální Lymfodrenáž</div>
+<article id="manualni_lymfodrenaz" class="clanek">
+  <h2>Manuální lymfodrenáž</h2>
+  …
+</article>
+<p>Manuální lymfodrenáž, někdy nazývaná lymfatická masáž, je technika zaměřená na podporu přirozeného toku lymfy v těle. Lymfatický systém odvádí odpadní látky a přebytečnou tekutinu z tkání zpět do krevního oběhu, což přispívá k celkové regeneraci a rovnováze organismu. Manuální lymfodrenáž využívá jemného tlaku (méně než 4 kPa) a rytmických, krouživých pohybů, které stimulují tok lymfy a podporují správnou funkci lymfatických cév.</p>
+
+<p>Lymfatický systém je klíčový pro udržení rovnováhy tekutin v těle a správnou funkci imunity. Jeho činnost závisí na peristaltice (pohybu hladkých svalů ve stěnách lymfatických cév) a pohybu kosterních svalů, které napomáhají transportu lymfy do lymfatických uzlin.</p>
+
+<h2>Historie manuální lymfodrenáže</h2>
+
+<p>Manuální lymfodrenáž vyvinuli v 30. letech 20. století dánští lékaři Emil Vodder a Estrid Vodderová. Při práci na Francouzské Riviéře si všimli, že pacienti s chronickým nachlazením mívají zduřelé lymfatické uzliny. To je vedlo k vytvoření systému jemných, rytmických pohybů, který měl podpořit proudění lymfy. V roce 1936 představili tuto techniku v Paříži. Po druhé světové válce se Vodderovi vrátili do Kodaně, kde tuto terapii dále rozvíjeli a školili další odborníky.</p>
+
+<p>Lymfatický systém byl již v 17. století známý, avšak jeho přesná funkce a vliv na zdraví zůstávaly až do 20. století nejasné. Díky práci Vodderových se manuální lymfodrenáž stala uznávanou metodou používanou v rehabilitaci a prevenci.</p>
+
+<h2>Indikace pro manuální lymfodrenáž</h2>
+
+<p>Manuální lymfodrenáž má široké využití při různých zdravotních problémech i jako prostředek regenerace. Mezi hlavní indikace patří:</p>
+<p>Lymfedém: Manuální lymfodrenáž je standardní metodou léčby lymfedému, což je stav charakterizovaný hromaděním lymfy v tkáních, nejčastěji v končetinách.</p>
+<p>Pooperační péče: Doporučuje se zejména po odstranění lymfatických uzlin (např. po mastektomii) ke snížení rizika lymfedému.</p>
+<p>Hojení ran a otoků: Pomáhá při regeneraci po úrazech, operacích nebo jiných stavech spojených s otoky.</p>
+<p>Chronické otoky: Vhodná při léčbě chronického edému nebo syndromu otoku.</p>
+<p>Podpora regenerace: Někteří klienti vyhledávají lymfodrenáž jako prostředek pro zlepšení pocitu lehkosti a podporu přirozených regeneračních procesů těla.</p>
+<p>Nepřímá podpora imunity: Lymfodrenáž může zlepšit odvod odpadních látek, což podporuje optimální funkci imunitního systému.</p>
+
+<h2>Kontraindikace manuální lymfodrenáže</h2>
+
+<p>I přes své benefity existují situace, kdy by manuální lymfodrenáž neměla být prováděna. Mezi hlavní kontraindikace patří:</p>
+<p>Akutní infekce: Masáž může zvýšit riziko šíření infekce (např. horečka, kožní infekce).</p>
+<p>Akutní zánět: Lymfodrenáž není vhodná na místech s akutními zánětlivými reakcemi, popáleninami nebo vředy.</p>
+<p>Srdeční problémy: Klienti s vážnými srdečními problémy by měli terapii konzultovat s lékařem.</p>
+<p>Trombóza: Riziko uvolnění krevní sraženiny vyžaduje předchozí konzultaci s lékařem.</p>
+<p>Onkologická onemocnění: Masáž je možná pouze po konzultaci s onkologem a za přísných pravidel.</p>
+<p>Akutní onemocnění štítné žlázy: Terapie by měla být prováděna pouze pod dohledem lékaře.</p>
+<p>Alergie: Klient by měl informovat maséra o případné alergii na masážní prostředky nebo oleje.</p>
+<p>Těhotenství: Lymfodrenáž může být indikována ke zmírnění otoků, ale měla by být prováděna pouze od druhého trimestru a pod dohledem zkušeného terapeuta.Manuální lymfodrenáž zásadně neprovádím u těhotných žen, protože v této oblasti nemám potřebnou kvalifikaci. Dávám přednost tomu, aby se těhotné klientky svěřily do péče specialistů, kteří se na tuto problematiku zaměřují a mají s ní zkušenosti.</p>
+
+<h2>Závěrem</h2>
+
+<p>Manuální lymfodrenáž je vysoce specializovaná technika, která může pomoci při léčbě lymfatických poruch, regeneraci i prevenci. Aby byla bezpečná a účinná, je nezbytné, aby ji prováděl zkušený terapeut, který přihlédne k individuálním potřebám a zdravotnímu stavu klienta. Před zahájením terapie je vždy vhodné konzultovat zdravotní stav s lékařem nebo masérem.</p>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="ms4_content" id="ms4_btn">
+              <span>&lt;summary&gt;Reflexní terapie, Reflexologie&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="ms4_content" role="region" aria-labelledby="ms4_btn" hidden>
+              <div class="panel">Reflexní terapie, Reflexologie</div>
+<article id="reflexni_terapie" class="clanek">
+  <h2>Reflexní terapie</h2>
+  …
+</article>
+<p>Reflexní terapie, známá také jako reflexologie, je alternativní metoda zaměřená na stimulaci reflexních bodů na chodidlech, rukou nebo uších. Tato technika je založena na předpokladu, že reflexní zóny odpovídají různým orgánům a systémům v těle. Jemný tlak na tyto body má podpořit přirozené regenerační procesy těla, zmírnit symptomy některých obtíží a přispět k celkové pohodě.</p>
+
+<h2>Historie reflexní terapie</h2>
+
+<p>Kořeny reflexní terapie sahají do starověkých kultur, jako jsou Čína, Egypt a Indie, kde byla reflexní stimulace využívána jako součást tradiční medicíny. Moderní reflexní terapie však začala vznikat až v 19. století díky pracím amerického lékaře Willama Fitzgeralda a jeho studentky Eunice Inghamové.</p>
+
+<p>Fitzgerald rozpracoval koncept tzv. zónové terapie, podle které je tělo rozděleno do deseti podélných zón propojujících reflexní body na chodidlech, rukou a uších s konkrétními orgány. Eunice Inghamová tento systém dále rozšířila a zpřesnila, což vedlo ke vzniku moderní reflexologie.</p>
+
+<h2>Indikace reflexní terapie</h2>
+
+<p>Reflexní terapie může být vhodná jako doplňková metoda ke zmírnění příznaků a podpoře celkové pohody v těchto případech:</p>
+<p>Relaxace a snížení stresu: Terapie pomáhá klientům relaxovat a snižovat hladinu stresu, což má pozitivní vliv na celkovou pohodu.</p>
+<p>Bolesti svalů a kloubů: Může pomoci zmírnit bolesti svalů a kloubů, zejména při chronickém napětí.</p>
+<p>Podpora trávicího systému: Reflexní terapie se využívá ke zmírnění problémů, jako je nadýmání, zácpa nebo průjem.</p>
+<p>Zlepšení cirkulace: Stimulace reflexních bodů podporuje průtok krve a lymfy v těle.</p>
+<p>Regenerace: Mnoho klientů vyhledává reflexní terapii pro podporu regenerace a celkové vitality.</p>
+<p>Úleva při bolestech hlavy a migrénách: Někteří lidé uvádějí, že reflexní terapie pomáhá při zmírnění bolestí hlavy a migrén.</p>
+
+<h2>Kontraindikace reflexní terapie</h2>
+
+<p>Reflexní terapie je obecně považována za bezpečnou, ale existují situace, kdy by neměla být prováděna:</p>
+<p>Infekční onemocnění: Terapie může zvýšit riziko šíření infekce, pokud má klient akutní infekční chorobu (např. chřipku nebo kožní infekci).</p>
+<p>Závažné kožní onemocnění: Popáleniny, vředy nebo infikované rány jsou kontraindikací.</p>
+<p>Akutní zranění: Terapie by měla být odložena, dokud nedojde k úplnému zhojení zlomenin nebo výronů.</p>
+<p>Těhotenství: Reflexní terapie může být během těhotenství indikována ke zmírnění otoků nebo bolesti, avšak pouze od druhého trimestru a pod dohledem zkušeného terapeuta. Reflexní metodu zásadně neprovádím u těhotných žen, protože v této oblasti nemám potřebnou kvalifikaci. Dávám přednost tomu, aby se těhotné klientky svěřily do péče specialistů, kteří se na tuto problematiku zaměřují a mají s ní zkušenosti.</p>
+<p>Krvácivé poruchy: Osoby s poruchami srážlivosti krve by měly terapii konzultovat s lékařem.</p>
+<p>Akutní psychické poruchy: Terapie není vhodná pro osoby v akutní fázi psychických problémů bez předchozí konzultace s odborníkem.</p>
+<p>Problémy s cévním systémem: Klienti s varixy, trombózou nebo jinými cévními onemocněními by měli terapii konzultovat s lékařem.</p>
+
+<h2>Vědecký pohled na reflexní terapii</h2>
+
+<p>Vědecké důkazy o účinnosti reflexní terapie jsou omezené, přesto ji mnoho klientů vyhledává pro její schopnost zmírnit napětí a podpořit celkovou pohodu. Reflexní terapie by měla být vždy vnímána jako doplňková metoda a nikoli jako náhrada odborné lékařské péče.</p>
+
+<h2>Závěr</h2>
+
+<p>Reflexní terapie je jemná, neinvazivní metoda, která může přispět k relaxaci, regeneraci a zmírnění některých obtíží. Před jejím zahájením je vhodné konzultovat zdravotní stav s terapeutem, aby bylo zajištěno bezpečné a efektivní provedení.</p>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="ms5_content" id="ms5_btn">
+              <span>&lt;summary&gt;Dornova metoda&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="ms5_content" role="region" aria-labelledby="ms5_btn" hidden>
+              <div class="panel">Dornova metoda</div>
+<article id="dornova_metoda" class="clanek">
+  <h2>Dornova metoda</h2>
+  …
+</article>
+<p>Dornova metoda je jemná manuální terapie zaměřená na prevenci a zmírnění bolestí spojených s pohybovým aparátem. Osobně tuto metodu praktikuji každý den a považuji ji za mimořádně účinnou při péči o krční páteř. Díky vlastním zkušenostem ji s důvěrou doporučuji svým klientům – věřím, že je důležité nabízet pouze ověřené metody, které jsem sám vyzkoušel.</p>
+
+<p>Tato metoda, pojmenovaná po Dieteru Dornovi, pochází z bavorského městečka Lautrach. Dieter Dorn (1938) si jednou při zvedání těžkého kmene poškodil páteř a nemohl se kvůli bolesti narovnat. Pomohl mu starý sedlák, který měl pověst, že dokáže ulevit lidem s problémy s páteří. Dorn byl účinkem této pomoci ohromen, a proto se rozhodl tento přístup naučit. Postupně terapii intuitivně rozvíjel, popsal a začal učit další zájemce. Dnes se Dornova metoda praktikuje po celém světě, včetně České republiky, kde se pořádají odborné kurzy pro terapeuty.</p>
+
+<h2>Princip Dornovy metody</h2>
+
+<p>Dornova metoda spočívá v jemných manuálních pohybech, které mají pomoci vrátit obratle a klouby do jejich přirozené polohy. Tato metoda je jedinečná tím, že během terapie klient aktivně spolupracuje s terapeutem – pomocí vlastního pohybu se tělo navrací do správného postavení. Dornova metoda je rovněž doplněna základními cviky, které slouží k prevenci blokací a udržení rovnováhy pohybového aparátu.</p>
+
+<p>Dieter Dorn věřil, že metoda by měla být co nejdostupnější, a proto ji původně šířil zdarma. Postupem času se s jejím rozvojem a popularizací stala uznávanou terapeutickou metodou, kterou dnes využívají tisíce terapeutů po celém světě.</p>
+
+<h2>Indikace pro Dornovu metodu</h2>
+
+<p>Dornova metoda je vhodná pro zmírnění problémů s pohybovým aparátem, jako například:</p>
+<p>Problémy s páteří: Pomáhá při bolestech zad, krku, skolióze a dalších posturálních problémech.</p>
+<p>Dysfunkce kloubů: Terapie je účinná při korekci problémů s klouby, včetně kyčlí, kolen nebo kotníků.</p>
+<p>Bolesti hlavy a krční páteře: Může zmírnit napětí v krční páteři, které přispívá k bolestem hlavy.</p>
+<p>Bolesti v oblasti beder a pánve: Pomáhá obnovit správnou polohu páteře v těchto oblastech.</p>
+<p>Zlepšení postury: Je vhodná pro zlepšení držení těla a prevenci posturálních problémů.</p>
+<p>Relaxace a pohoda: Terapie přináší celkovou úlevu, uvolnění svalů a kloubů.</p>
+
+<h2>Kontraindikace pro Dornovu metodu</h2>
+
+<p>Přestože je Dornova metoda považována za jemnou a bezpečnou, existují situace, kdy by neměla být prováděna:</p>
+<p>Závažné neurologické problémy: Například komprese míchy nebo nervových kořenů.</p>
+<p>Zlomeniny: Terapie musí být odložena, dokud nedojde k úplnému zhojení zlomenin.</p>
+<p>Akutní zánětlivé stavy: Například při akutní revmatoidní artritidě.</p>
+<p>Těhotenství: Terapie je možná, ale pouze pod dohledem zkušeného terapeuta, zejména u bolestí zad v těhotenství. Dornovu metodu zásadně neprovádím u těhotných žen, protože v této oblasti nemám potřebnou kvalifikaci. Dávám přednost tomu, aby se těhotné klientky svěřily do péče specialistů, kteří se na tuto problematiku zaměřují a mají s ní zkušenosti.</p>
+<p>Karcinom: Terapie by měla být prováděna pouze po konzultaci s lékařem nebo onkologem.</p>
+<p>Poruchy krvácení: Klienti s poruchami srážlivosti krve by měli před terapií konzultovat s lékařem.</p>
+<p>Akutní infekce: Terapie se nesmí provádět při horečce nebo infekčních onemocněních.</p>
+
+<h2>Doporučení k Dornově metodě</h2>
+
+<p>Dornova metoda je jemná a neinvazivní, ale vyžaduje přesné provedení a spolupráci klienta s terapeutem. Pro dosažení dlouhodobých výsledků je nezbytné pravidelné cvičení a dodržování doporučených postupů.</p>
+<p>Tato metoda není náhradou za odbornou lékařskou péči, ale může být skvělým doplňkem při řešení problémů s pohybovým aparátem. Doporučuje se vždy konzultovat zdravotní stav s terapeutem, který zohlední individuální potřeby a kontraindikace.</p>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="ms6_content" id="ms6_btn">
+              <span>&lt;summary&gt;Breussova metoda&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="ms6_content" role="region" aria-labelledby="ms6_btn" hidden>
+              <div class="panel">Breussova metoda</div>
+<article id="breussova_metoda" class="clanek">
+  <h2>Breussova metoda</h2>
+  …
+</article>
+<p>Breussova metoda je jemná a relaxační masáž zaměřená na oblast páteře. Je známá tím, že mnoho klientů se během ní dostane do hlubokého klidu nebo dokonce usne. Tato metoda je méně známá, ale vysoce účinná, a zaslouží si větší pozornost. Rád bych touto cestou zvýšil povědomí o této technice a ukázal její přínosy.</p>
+
+<h2>Historie Breussovy metody</h2>
+
+<p>Breussovu metodu vyvinul rakouský lidový léčitel a experimentátor Rudolf Breuss (1899–1990) ve 20. století. Breuss věřil, že meziobratlové ploténky hrají klíčovou roli v energetické rovnováze těla. Tvrdil, že pokud jsou ploténky poškozené nebo dehydratované, může to vést k bolestem zad, únavě a dalším zdravotním problémům.</p>
+
+<p>Jeho metoda je založena na jemných a pomalých tazích, které uvolňují napětí v oblasti páteře a podporují pružnost meziobratlových plotének. I když vědecké důkazy o účinnosti této techniky chybí, mnoho klientů uvádí zlepšení pohody a zmírnění bolesti po jejím absolvování.</p>
+
+<h2>Princip Breussovy metody</h2>
+
+<p>Breussova metoda zahrnuje pomalé a jemné tahy prováděné po celé délce páteře. Tato technika:</p>
+<p>Podporuje hydrataci a pružnost meziobratlových plotének.</p>
+<p>Pomáhá uvolnit napětí v oblasti zad a svalů kolem páteře.</p>
+<p>Navozuje hlubokou relaxaci a snižuje stres.</p>
+
+<h2>Indikace pro Breussovu metodu</h2>
+
+<p>Breussova metoda může být užitečná při následujících potížích:</p>
+<p>Bolesti zad: Zmírňuje napětí a bolest v oblasti páteře.</p>
+<p>Skolióza a posturální problémy: Podporuje správnou polohu páteře a může pomoci při skolióze.</p>
+<p>Napětí meziobratlových plotének: Pomáhá uvolnit napětí a podporuje pružnost plotének.</p>
+<p>Stres a svalové napětí: Navozuje hlubokou relaxaci a pomáhá uvolnit svaly.</p>
+<p>Únava: Breussova metoda může přispět k obnovení energie a pocitu vitality.</p>
+
+<h2>Kontraindikace pro Breussovu metodu</h2>
+
+<p>Přestože je Breussova metoda považována za jemnou a bezpečnou, existují situace, kdy by neměla být prováděna:</p>
+<p>Akutní infekce: Terapie se nesmí provádět při horečce nebo infekčních onemocněních.</p>
+<p>Závažné neurologické problémy: Například komprese míchy nebo nervových kořenů.</p>
+<p>Akutní zánětlivé stavy: Například akutní revmatoidní artritida.</p>
+<p>Karcinom: Terapie je možná pouze po konzultaci s lékařem nebo onkologem.</p>
+<p>Poruchy krvácení: Osoby s poruchami srážlivosti krve by měly před terapií konzultovat s lékařem.</p>
+<p>Zlomeniny: Terapie musí být odložena, dokud nedojde k úplnému zhojení zlomenin.</p>
+
+<h2>Doporučení k Breussově metodě</h2>
+
+<p>Breussova metoda je jemná a neinvazivní technika, která podporuje uvolnění a regeneraci. Je však důležité, aby ji prováděl zkušený terapeut, který přihlédne k individuálním potřebám klienta. Před terapií je vhodné konzultovat zdravotní stav klienta, aby byla masáž provedena bezpečně a účinně.</p>
+
+<h2>Vědecký pohled na Breussovu metodu</h2>
+
+<p>Vědecké důkazy o účinnosti Breussovy metody jsou omezené, přesto je tato technika vyhledávána pro své relaxační účinky a schopnost zmírnit napětí v oblasti páteře. Je důležité si uvědomit, že Breussova metoda není náhradou za lékařskou péči, ale může být vhodným doplňkem pro podporu pohybového aparátu a celkové pohody.</p>
+            </div>
+          </div>
+
+          <!-- 7 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="ms7_content" id="ms7_btn">
+              <span>&lt;summary&gt;Masáž lávovými kameny&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="ms7_content" role="region" aria-labelledby="ms7_btn" hidden>
+              <div class="panel">Masáž lávovými kameny</div>
+<article id="masaz_lavove_kameny" class="clanek">
+  <h2>Masáž lávovými kameny</h2>
+  …
+</article>
+<p>Masáž lávovými kameny je technika, která využívá teplo přírodních vulkanických kamenů k uvolnění svalového napětí a stresu. Jde o příjemnou a účinnou masážní metodu.</p>
+
+<h2>Historie masáže lávovými kameny</h2>
+
+<p>Masáž lávovými kameny má dlouhou tradici a její počátky lze vysledovat až do starověku. Vulkanické kameny se používaly například ve starověkém Řecku a Římě k zahřátí těla a zmírnění bolesti. Na Havaji byly součástí tradičních léčebných rituálů a v Japonsku se využívaly k podpoře trávení a zlepšení krevního oběhu.</p>
+
+<p>V moderní době byla masáž lávovými kameny znovu objevena v 70. letech 20. století, kdy ji popularizoval americký masér Howard Love. Love se inspiroval tradičními léčebnými postupy Maorů, kteří vulkanické kameny používali k léčbě různých zdravotních problémů.</p>
+
+<h2>Jak masáž lávovými kameny probíhá?</h2>
+
+<p>Masáž se provádí tak, že se vulkanické kameny ohřejí na teplotu přibližně 55 °C. Zahřáté kameny se pokládají na různé části těla, nejčastěji na záda, krk a ramena. Masér pak pomocí kamenů provádí jemné masážní techniky, které pomáhají uvolnit svalové napětí a navodit hlubokou relaxaci.</p>
+
+<p>Lávové kameny jsou přírodní vulkanické kameny, které vznikly ochlazením lávy. Jejich vysoká hustota umožňuje dlouhodobé udržení tepla, což z nich dělá ideální nástroj pro tepelnou terapii.</p>
+
+<h2>Indikace pro masáž lávovými kameny</h2>
+
+<p>Masáž lávovými kameny může být užitečná při následujících problémech:</p>
+<p>Svalové napětí a bolesti: Pomáhá uvolnit napjaté svaly a zmírnit bolest v oblasti krku, ramen, zad, beder a dalších částí těla.</p>
+<p>Stres a úzkost: Tato forma masáže podporuje relaxaci a snižuje hladinu stresu.</p>
+<p>Cirkulační problémy: Podporuje zlepšení průtoku krve a lymfy.</p>
+<p>Úleva při artritidě: Může zmírnit bolest spojenou s artritidou a dalšími kloubními problémy.</p>
+<p>Celková revitalizace: Masáž pomáhá obnovit energii a podpořit pocit vitality.</p>
+
+<h2>Kontraindikace pro masáž lávovými kameny</h2>
+
+<p>Existují situace, kdy by masáž lávovými kameny neměla být prováděna:</p>
+<p>Kardiovaskulární problémy: Klienti s vážnými srdečními onemocněními by měli masáž konzultovat s lékařem.</p>
+<p>Diabetická neuropatie: Osoby s diabetem, které trpí sníženou citlivostí kůže, by měly být opatrné, aby nedošlo k popálení.</p>
+<p>Poruchy krvácení: Klienti s poruchami srážlivosti krve by měli konzultovat terapii s lékařem.</p>
+<p>Akutní zánětlivé stavy: Masáž není vhodná při akutní artritidě nebo jiných zánětlivých stavech.</p>
+<p>Infekční onemocnění: Masáž se nesmí provádět při horečce nebo jiných infekcích.</p>
+<p>Karcinom: Masáž by měla být prováděna pouze po konzultaci s lékařem nebo onkologem.</p>
+
+<h2>Doporučení pro masáž lávovými kameny</h2>
+
+<p>Masáž lávovými kameny je technika, která vyžaduje zkušeného terapeuta. Teplo kamenů je velmi příjemné, ale nesprávné použití může způsobit nepohodlí nebo dokonce popáleniny. Před masáží je důležité konzultovat zdravotní stav klienta a zohlednit případné kontraindikace.</p>
+
+<h2>Vědecký pohled na masáž lávovými kameny</h2>
+
+<p>I když vědecké důkazy o účinnosti masáže lávovými kameny jsou omezené, mnoho klientů ji vyhledává pro její relaxační účinky a schopnost zmírnit svalové napětí. Masáž lávovými kameny je považována za doplňkovou terapii, která může podpořit celkovou pohodu a uvolnění.</p>
+            </div>
+          </div>
+
+          <!-- 8 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="ms8_content" id="ms8_btn">
+              <span>&lt;summary&gt;Masáž pro těhotné, Těhotenská masáž&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="ms8_content" role="region" aria-labelledby="ms8_btn" hidden>
+              <div class="panel">Masáž pro těhotné, Těhotenská masáž</div>
+<article id="masaz_tehotne" class="clanek">
+  <h2>Masáž pro těhotné</h2>
+  …
+</article>
+<p>Těhotenská masáž je metoda zaměřená na navození úlevy a pohody pro nastávající matku, což nepřímo prospívá i jejímu nenarozenému dítěti. Masáže probíhají v poloze vleže na boku nebo vsedě, což zajišťuje pohodlí a bezpečnost pro matku i plod. Těhotenské masáže jsou vhodné od druhého trimestru těhotenství, kdy jsou pro tělo matky i vývoj plodu bezpečné.</p>
+
+<h2>Přínosy těhotenské masáže</h2>
+
+<p>Těhotenská masáž má mnoho přínosů, které podporují fyzickou i emoční pohodu nastávajících matek. Mezi hlavní výhody patří:</p>
+<p>Zmírnění únavy a svalového napětí: Masáž pomáhá uvolnit napjaté svaly a přispívá k celkové relaxaci.</p>
+<p>Zlepšení krevního oběhu: Podpora cirkulace přispívá ke zlepšení prokrvení tkání, což může snížit otoky a pomoci při pocitu těžkých nohou.</p>
+<p>Zlepšení kvality spánku: Masáž napomáhá zklidnění a hlubší relaxaci, což podporuje klidný a osvěžující spánek.</p>
+<p>Snížení stresu a úzkosti: Masáž má pozitivní vliv na emoční pohodu matky, což může nepřímo ovlivnit i nenarozené dítě.</p>
+<p>Zmírnění bolesti zad a kloubů: Pomáhá při bolestech zad, krční páteře, kyčlí a dalších kloubů, které jsou během těhotenství namáhány.</p>
+
+<h2>Odborné provádění těhotenské masáže</h2>
+
+<p>Těhotenskou masáž by měl provádět pouze certifikovaný masér, který má specializaci na těhotenské masáže. Mezi profesionály patří například fyzioterapeuti, aromaterapeuti, porodní asistentky nebo duly.</p>
+<p>Pokud těhotnou ženu trápí výrazné bolesti zad nebo jiné obtíže, doporučuje se nejprve konzultace s lékařem. Ten může doporučit návštěvu zkušeného fyzioterapeuta, který zajistí bezpečné a cílené ošetření.</p>
+
+<h2>Poloha při těhotenské masáži</h2>
+
+<p>Od čtvrtého měsíce těhotenství se těhotenské masáže provádějí v poloze na boku, protože poloha na zádech může být nepohodlná a riziková. Rostoucí děloha by totiž mohla utlačovat dolní dutou žílu, což by narušilo přívod kyslíku k plodu a mohlo by vést k závratím u matky. Masáže mohou být také prováděny v poloze vsedě, v závislosti na typu masáže a potřebách klientky.</p>
+
+<h2>Kontraindikace těhotenské masáže</h2>
+
+<p>Těhotenské masáže jsou obecně bezpečné, avšak existují situace, kdy by neměly být prováděny:</p>
+<p>První trimestr: Masáže se neprovádějí v prvním trimestru, aby se předešlo možným komplikacím v rané fázi těhotenství.</p>
+<p>Rizikové těhotenství: Ženy s rizikovým těhotenstvím by měly masáže konzultovat se svým lékařem nebo porodní asistentkou.</p>
+<p>Infekční onemocnění: Masáže nejsou vhodné při horečce, nachlazení, průjmu nebo jiných infekčních stavech.</p>
+<p>Kožní problémy: Masáže nejsou vhodné při vážných kožních onemocněních, jako jsou ekzémy, vyrážky nebo infikované rány.</p>
+<p>Riziko trombózy: Vzhledem k vyššímu riziku vzniku krevních sraženin během těhotenství je důležité tento stav před masáží konzultovat s lékařem.</p>
+
+<h2>Závěr</h2>
+
+<p>Těhotenská masáž je skvělý způsob, jak ulevit od fyzického i psychického napětí a podpořit celkovou pohodu nastávajících matek. Při správném provedení je bezpečná a účinná. Je však důležité, aby ji prováděl odborník, který má zkušenosti s těhotnými klientkami a přihlíží k jejich individuálním potřebám.</p>
+            </div>
+          </div>
+
+          <!-- 9 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="ms9_content" id="ms9_btn">
+              <span>&lt;summary&gt;Mobilizační metoda, Mobilizace&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="ms9_content" role="region" aria-labelledby="ms9_btn" hidden>
+              <div class="panel">Mobilizační metoda, Mobilizace</div>
+<article id="mobilizacni_metoda" class="clanek">
+  <h2>Mobilizační metoda</h2>
+  …
+</article>
+<p>Mobilizace je manuální terapie zaměřená na uvolnění kloubů a zlepšení jejich pohyblivosti. Tato metoda vychází z principu, že kloubní blokády mohou omezovat pohyb a způsobovat bolest. Mobilizační techniky pomáhají odstranit tyto blokády a obnovit normální pohyblivost kloubů.</p>
+
+<h2>Historie mobilizační metody</h2>
+
+<p>Mobilizační techniky mají své kořeny již ve starověkých kulturách. Například v Číně byly součástí tradiční medicíny už před více než 3 000 lety. V Evropě se mobilizační metody začaly rozvíjet až v 19. století díky pracím švédského lékaře Pera Henrika Linga, který vytvořil systém manuálních technik zaměřených na obnovu pohyblivosti kloubů a svalů.</p>
+<p>Lingovy techniky inspirovaly další rozvoj mobilizace, která se postupem času stala součástí moderní fyzioterapie. Dnes je mobilizační metoda běžně využívána odborníky k léčbě široké škály zdravotních problémů.</p>
+
+<h2>Indikace pro mobilizační metodu</h2>
+
+<p>Mobilizační metoda může být užitečná při následujících problémech:</p>
+<p>Omezená pohyblivost kloubů: Vhodná pro klienty s omezeným rozsahem pohybu způsobeným zraněním, degenerativními onemocněními nebo po chirurgických zákrocích.</p>
+<p>Bolesti v kloubech a svalech: Pomáhá zmírnit bolesti spojené s kloubními blokádami a svalovým napětím.</p>
+<p>Poruchy držení těla: Může být přínosná u skoliózy, hypermobility nebo jiných posturálních problémů.</p>
+<p>Posttraumatická rehabilitace: Podporuje obnovu normálního pohybu po úrazech, jako jsou zlomeniny nebo natažení svalů.</p>
+<p>Následky operací: Užitečná při rehabilitaci po operacích ovlivňujících klouby nebo svaly.</p>
+<p>Prevence zranění: Někteří klienti vyhledávají mobilizační terapii jako součást prevence zranění a péče o pohybový aparát.</p>
+
+<h2>Kontraindikace pro mobilizační metodu</h2>
+
+<p>Mobilizační metoda není vhodná v následujících případech:</p>
+<p>Akutní zánětlivé stavy: Například při akutní revmatoidní artritidě nebo jiných zánětlivých onemocněních kloubů a svalů.</p>
+<p>Nedávné zlomeniny: Mobilizace může být za určitých podmínek součástí rehabilitace, ale vždy by měla být prováděna pod dohledem lékaře nebo fyzioterapeuta.</p>
+<p>Záněty kloubů: Například při artritidě nebo bursitidě.</p>
+<p>Krevní sraženiny: Osoby s historií krevních sraženin by měly před terapií konzultovat s lékařem, aby se minimalizovalo riziko komplikací.</p>
+<p>Vážné kardiovaskulární problémy: Například hypertenze nebo srdeční onemocnění. Terapie by měla být prováděna pouze pod dohledem lékaře.</p>
+<p>Poruchy srážlivosti krve: Zvýšené riziko krvácení je důvodem pro konzultaci s lékařem.</p>
+<p>Akutní infekční onemocnění: Masáže a mobilizační techniky by se neměly provádět při horečce nebo infekci.</p>
+<p>Karcinom: Mobilizace je možná pouze po konzultaci s lékařem nebo onkologem, aby byla zajištěna bezpečnost klienta.</p>
+
+<h2>Doporučení pro mobilizační metodu</h2>
+
+<p>Mobilizační metoda je účinná technika pro zlepšení pohyblivosti kloubů, zmírnění bolesti a podporu celkové funkce pohybového aparátu. Tuto metodu by však měl provádět pouze odborník, například fyzioterapeut, který zohlední zdravotní stav klienta a přizpůsobí terapii jeho individuálním potřebám.</p>
+<p>Před zahájením mobilizační terapie je důležité konzultovat jakékoliv zdravotní obtíže s lékařem, zejména pokud klient trpí některou z uvedených kontraindikací.</p>
+            </div>
+          </div>
+
+          <!-- 10 -->
+          <div class="accordion">
+            <button aria-expanded="false" aria-controls="ms10_content" id="ms10_btn">
+              <span>&lt;summary&gt;Sem vlož název.&lt;/summary&gt;</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="ms10_content" role="region" aria-labelledby="ms10_btn" hidden>
+              <div class="panel">Cviky na krční, hrudní a bederní páteř</div>
+
+  <h3>Cviky na krční, hrudní a bederní páteř</h3>
+  <p><strong>Důležité upozornění:</strong> Tyto cviky jsou určeny k uvolnění krční, hrudní a bederní páteře. Před jejich prováděním se prosím nejprve spojte se mnou, abychom společně natrénovali správný postup. Nesprávné provedení těchto cviků může mít nepříznivé účinky na vaše zdraví. Tyto cviky jsou doplňkovým prostředkem k mé masáži a nenahrazují odbornou léčbu. Pokud se rozhodnete tyto cviky praktikovat doma, dbejte prosím na opatrnost a dodržujte mé pokyny. Za újmy vzniklé v důsledku nesprávného provádění těchto cviků nenesu odpovědnost.</p>
+
+  <h3>Cviky na krční páteř</h3>
+
+  <h4>Cvik první:</h4>
+  <ul>
+    <li>Položte levou ruku na pravou stranu krku. Dlaň směřuje vzadu na krk, prsty na pravé straně.</li>
+    <li>Pomalu otáčejte hlavou vlevo a vpravo. Levou rukou při otáčení hlavy vpravo jemně tlačte vlevo.</li>
+    <li>Poté vraťte hlavu a ruku zpět do výchozí polohy a opakujte na druhou stranu.</li>
+    <li>Při cviku pomalu dýchejte – při námaze vydechujte, při uvolnění se nadechujte.</li>
+  </ul>
+
+  <h4>Cvik druhý:</h4>
+  <ul>
+    <li>Položte levou ruku za hlavu, aby se dlaň dotýkala oblasti za levým uchem.</li>
+    <li>Pravou ruku nechte volně podél těla.</li>
+    <li>Levou rukou jemně tlačte hlavu vlevo, zatímco pravé rameno lehce stahujte dolů.</li>
+    <li>Měli byste cítit napětí v trapézovém svalu a rameni. Po několika sekundách tlak uvolněte.</li>
+    <li>Opakujte stejný postup na pravou stranu (5× každá strana).</li>
+  </ul>
+
+  <h3>Cviky na hrudní páteř</h3>
+
+  <h4>Cvik první:</h4>
+  <ul>
+    <li>Položte dlaň levé ruky na pravé rameno tak, aby se prsty dotýkaly horní části lopatky.</li>
+    <li>Pravou rukou podepřete levou a jemně ji tlačte k tělu.</li>
+    <li>Měli byste cítit tlak v oblasti ramene a pravé lopatky.</li>
+    <li>Vydržte 20 sekund a poté ruce uvolněte. Opakujte na druhou stranu (5× každá).</li>
+  </ul>
+
+  <h4>Cvik druhý:</h4>
+  <ul>
+    <li>Spojte ruce za hlavou a položte je na krk.</li>
+    <li>Seďte s rovnou páteří a jemně tlačte rukama na hlavu, zatímco hlava vyvíjí protitlak na ruce.</li>
+    <li>V této pozici vydržte 10 sekund, poté tlak uvolněte a dejte si krátkou pauzu.</li>
+    <li>Opakujte 5–7×.</li>
+  </ul>
+
+  <h3>Cvik na bederní páteř</h3>
+  <ul>
+    <li>Postavte se bosí ke zdi nebo dveřím a pravou rukou se lehce opřete.</li>
+    <li>Levou ruku položte na levou část beder.</li>
+    <li>Pravou nohou pohybujte vpřed a vzad. Při pohybu nohy vpřed jemně promačkávejte bedra od poloviny zad až k hýžďovému svalstvu.</li>
+    <li>Jakmile jde noha vzad, pohyb zastavte a ruku uvolněte.</li>
+    <li>Opakujte 2× na každou stranu s mírným tlakem.</li>
+  </ul>
+
+  <h3>Důležitá doplnění</h3>
+  <ul>
+    <li>Cvičení provádějte 2× denně.</li>
+    <li>Počáteční cvičení střídejte s pauzami a dbejte na plynulý pohyb.</li>
+    <li>Pokud pociťujete větší bolest, okamžitě cvik přerušte.</li>
+    <li>Cviky provádějte opatrně a v souladu se svým fyzickým stavem.</li>
+  </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<script>
+  (function(){
+    // Utility helpers
+    const body = document.body;
+    const yearEl = document.getElementById('year');
+    if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+    const ariaStatus = document.getElementById('ariaStatus');
+
+    function announce(msg){
+      if(ariaStatus) ariaStatus.textContent = msg;
+    }
+
+    // Modal handling
+    const openButtons = document.querySelectorAll('[data-open]');
+    const modals = document.querySelectorAll('[data-modal]');
+    const closeButtons = document.querySelectorAll('[data-close]');
+
+    // Track last focused element to return focus on close
+    let lastFocused = null;
+
+    // Focus trap implementation
+    function trapFocus(container){
+      const focusableSelectors = [
+        'a[href]:not([tabindex="-1"])',
+        'button:not([disabled]):not([tabindex="-1"])',
+        'textarea:not([disabled]):not([tabindex="-1"])',
+        'input[type="text"]:not([disabled]):not([tabindex="-1"])',
+        'input[type="radio"]:not([disabled]):not([tabindex="-1"])',
+        'input[type="checkbox"]:not([tabindex="-1"])',
+        '[tabindex]:not([tabindex="-1"])'
+      ].join(',');
+      const nodes = Array.from(container.querySelectorAll(focusableSelectors));
+      if(nodes.length === 0) return () => {};
+      let idx = 0;
+      nodes[0].focus();
+
+      function handleKey(e){
+        if(e.key === 'Tab'){
+          if(e.shiftKey){
+            idx = (idx - 1 + nodes.length) % nodes.length;
+            nodes[idx].focus();
+            e.preventDefault();
+          } else {
+            idx = (idx + 1) % nodes.length;
+            nodes[idx].focus();
+            e.preventDefault();
+          }
+        }
+      }
+      container.addEventListener('keydown', handleKey);
+      return function release(){
+        container.removeEventListener('keydown', handleKey);
+      };
+    }
+
+    // Open modal
+    openButtons.forEach(btn => {
+      btn.addEventListener('click', function(e){
+        const id = btn.getAttribute('data-open');
+        const modal = document.getElementById(id);
+        if(!modal) return;
+        lastFocused = document.activeElement;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+        body.style.overflow = 'hidden';
+        // find dialog inside and focus it
+        const dialog = modal.querySelector('[role="dialog"]');
+        // make other content inert for screen readers (simple approach)
+        document.querySelectorAll('body > *:not([data-modal])').forEach(el => {
+          if(el !== modal) el.setAttribute('aria-hidden','true');
+        });
+        if(dialog){
+          dialog.focus();
+        }
+        announce(id === 'priceModal' ? 'Otevřen ceník.' : id === 'faqModal' ? 'Otevřeno FAQ.' : 'Otevřeny informace o masážích.');
+        // trap focus
+        const release = trapFocus(dialog || modal);
+        modal._releaseFocus = release;
+        // close on backdrop click
+        modal.addEventListener('click', function backdropClose(ev){
+          if(ev.target === modal){
+            closeModal(modal);
+          }
+        });
+      });
+    });
+
+    // Close modal
+    function closeModal(modal){
+      if(!modal) return;
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      body.style.overflow = '';
+      // restore aria-hidden
+      document.querySelectorAll('body > *:not([data-modal])').forEach(el => el.removeAttribute('aria-hidden'));
+      // return focus
+      if(lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+      announce('Okno bylo uzavřeno.');
+      // release focus trap
+      if(modal._releaseFocus) modal._releaseFocus();
+    }
+
+    closeButtons.forEach(btn => btn.addEventListener('click', function(){
+      const modal = btn.closest('[data-modal]');
+      closeModal(modal);
+    }));
+
+    // Global key handler (ESC)
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        const open = document.querySelector('[data-modal].open');
+        if(open) closeModal(open);
+      }
+    });
+
+    // Accessible accordion behavior for all accordions in modals
+    function setupAccordions(root){
+      if(!root) return;
+      const items = Array.from(root.querySelectorAll('.accordion'));
+      items.forEach(item => {
+        const btn = item.querySelector('button');
+        const panelId = btn.getAttribute('aria-controls');
+        const panel = document.getElementById(panelId);
+        const arrow = btn.querySelector('.chev');
+
+        btn.addEventListener('click', function(){
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', (!expanded).toString());
+          if(!expanded){
+            panel.removeAttribute('hidden');
+            if(arrow) arrow.classList.add('open');
+            announce('Rozbaleno: ' + (btn.textContent || ''));
+          } else {
+            panel.setAttribute('hidden','');
+            if(arrow) arrow.classList.remove('open');
+            announce('Sbaleno: ' + (btn.textContent || ''));
+          }
+        });
+      });
+    }
+
+    // Initialize accordions in both modals
+    setupAccordions(document.getElementById('faqAccordions'));
+    setupAccordions(document.getElementById('massageAccordions'));
+
+    // Make sure modals are hidden on load
+    modals.forEach(m => {
+      m.setAttribute('aria-hidden','true');
+    });
+
+  })();
+</script>
+
+<!-- Reservio widget script – stačí jednou na stránce -->
+<script src="https://cdn.reservio.com/widget/button-bundle.js"></script>
+<script>
+document.querySelectorAll('.price-link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = e.target.getAttribute('data-target');
+    const targetEl = document.getElementById(targetId);
+
+    // Zavře modal Ceníku
+    const priceModal = document.getElementById('priceModal');
+    if (priceModal) {
+      priceModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Otevře modal s informacemi o masážích
+    const infoModal = document.getElementById('infoModal');
+    if (infoModal) infoModal.classList.add('open');
+
+    // Pokud existuje cílový článek
+    if (targetEl) {
+      // Zavři všechny ostatní accordeony (skrývá jejich obsah)
+      document.querySelectorAll('#infoModal [role="region"]').forEach(section => {
+        section.hidden = true;
+      });
+      document.querySelectorAll('#infoModal button[aria-expanded="true"]').forEach(btn => {
+        btn.setAttribute('aria-expanded', 'false');
+        const chev = btn.querySelector('.chev');
+        if (chev) chev.classList.remove('open');
+      });
+
+      // Najdi accordion, do kterého článek patří, a otevři ho
+      const accordionPanel = targetEl.closest('.accordion');
+      if (accordionPanel) {
+        const button = accordionPanel.querySelector('button');
+        const content = accordionPanel.querySelector('[role="region"]');
+        if (button && content) {
+          content.hidden = false;
+          button.setAttribute('aria-expanded', 'true');
+          const chev = button.querySelector('.chev');
+          if (chev) chev.classList.add('open');
+        }
+      }
+
+      // Posuň pohled na článek
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
